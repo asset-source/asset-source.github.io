@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Landing</title>
-<style>
-body, html {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000; /* 여백 보일 때 배경색 */
+      overflow: hidden;
+    }
 
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
+    .hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }
 
-.hero iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 177.78vh;
-  height: 100vh;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-</style>
+    /* 핵심: 화면을 '덮도록(cover)' iframe을 더 크게 만들어 잘라냄 */
+    .hero iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100vh;
+
+      /* cover 효과 */
+      min-width: 100%;
+      min-height: 100%;
+      width: 177.78vh;   /* 16:9 기준 cover */
+      height: 56.25vw;   /* 16:9 기준 cover */
+
+      border: 0;
+      pointer-events: none;
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="hero">
-  <iframe 
-    src="https://player.vimeo.com/video/1164632937?background=1"
-    frameborder="0"
-    allow="autoplay; fullscreen; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
-
+  <div class="hero">
+    <iframe
+      src="https://player.vimeo.com/video/1164632937?background=1"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
 </body>
 </html>
