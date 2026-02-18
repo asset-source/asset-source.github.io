@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landing</title>
+  <title>Notion Full Cover Banner</title>
   <style>
     html, body {
       margin: 0;
@@ -21,25 +21,28 @@
       overflow: hidden;
     }
 
-    /* scale을 지우고 비율에 맞춰 컨테이너를 채우는 설정 */
+    /* 핵심: 창 크기에 상관없이 항상 화면을 가득 채우는 설정 */
     .hero iframe {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 100vw;
-      height: 56.25vw; /* 16:9 비율 (100 * 9 / 16) */
-      min-height: 100vh;
-      min-width: 177.78vh; /* 16:9 비율 (100 * 16 / 9) */
       transform: translate(-50%, -50%);
-      pointer-events: none;
+      
+      /* 영상의 비율을 유지하며 화면을 꽉 채우는 'object-fit: cover'와 동일한 로직 */
+      width: 100vw;
+      height: 56.25vw; /* 16:9 비율 */
+      min-height: 100vh;
+      min-width: 177.78vh; /* 16:9 비율 */
+      
       border: 0;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
   <div class="hero">
     <iframe
-      src="https://player.vimeo.com/video/1164632937?background=1&autoplay=1&loop=1&muted=1"
+      src="https://player.vimeo.com/video/1164632937?background=1&autoplay=1&loop=1&muted=1&autopause=0"
       allow="autoplay; fullscreen"
       allowfullscreen>
     </iframe>
