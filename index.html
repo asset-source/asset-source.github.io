@@ -8,8 +8,9 @@
     html, body {
       margin: 0;
       padding: 0;
+      width: 100%;
       height: 100%;
-      background: #000; /* 여백 보일 때 배경색 */
+      background: #000;
       overflow: hidden;
     }
 
@@ -18,28 +19,28 @@
       width: 100vw;
       height: 100vh;
       overflow: hidden;
-      background: #000;
     }
 
-    /* 핵심: 화면을 '덮도록(cover)' iframe을 더 크게 만들어 잘라냄 */
-.hero iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-  transform: translate(-50%, -50%) scale(2.3);
-  pointer-events: none;
-  border: 0;
-}
-
+    /* scale을 지우고 비율에 맞춰 컨테이너를 채우는 설정 */
+    .hero iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw; /* 16:9 비율 (100 * 9 / 16) */
+      min-height: 100vh;
+      min-width: 177.78vh; /* 16:9 비율 (100 * 16 / 9) */
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border: 0;
+    }
   </style>
 </head>
 <body>
   <div class="hero">
     <iframe
-      src="https://player.vimeo.com/video/1164632937?background=1"
-      allow="autoplay; fullscreen; picture-in-picture"
+      src="https://player.vimeo.com/video/1164632937?background=1&autoplay=1&loop=1&muted=1"
+      allow="autoplay; fullscreen"
       allowfullscreen>
     </iframe>
   </div>
